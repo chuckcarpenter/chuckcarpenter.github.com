@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/normalize/2.0.1/normalize.css"></link>
+    <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css">
+
+{#     {% assets filters="stylus", output="css/pymblog.css", "src/pymblog.styl" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %} #}
+    {# <link href="{{ FEED_DOMAIN }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
+    {% if FEED_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %} #}
+
+    <script src="http://cdn.jsdelivr.net/modernizr/2.6.2/modernizr.min.js"></script>
+
+    {% block head %}
+        <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    {% endblock head %}
+</head>
+<body>
+    <header>
+        <hgroup>
+            <h1>Chuck Carpenter</h1>
+            <h2>{{ TAGLINE }}</h2>
+        </hgroup>
+    </header>
+    
+    <nav>
+    <ul>
+        {% for title, link in MENUITEMS %}
+            <li><a href="{{ link }}">{{ title }}</a></li>
+        {% endfor %}
+        {% if DISPLAY_PAGES_ON_MENU %}
+            {% for p in PAGES %}
+                <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+            {% endfor %}
+        {% else %}
+            {% for cat, null in categories %}
+                <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+            {% endfor %}
+        {% endif %}
+        {% for name, link in LINKS %}
+            <li><a href="{{ link }}">{{ name }}</a></li>
+        {% endfor %}
+    </ul>
+    </nav>
+
+    <section id="content">
+        {% block content %}{% endblock %}
+    </section>
+    
+    <footer>
+        {% include 'colophon.html' %}
+    </footer>
+
+    {# {% include 'analytics.html' %} #}
+</body>
+</html>
