@@ -33,7 +33,7 @@ MARKUP = 'md'
 #GOOGLE_ANALYTICS = 'UA-29827268-2'
 #DISQUS_SITENAME = 'wting'
 #GITHUB_URL = 'http://github.com/chuckcarpenter.github.com/'
-#TWITTER_USERNAME = 'chuckcarpenter'
+#TWITTER_USERNAME = ''
 
 
 # Blogroll

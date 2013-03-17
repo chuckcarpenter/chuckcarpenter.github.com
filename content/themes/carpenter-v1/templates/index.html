@@ -1,25 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-<article>
+<section>
 
-{% block content_title %}
-	<h2>Recent Articles</h2>
-{% endblock %}
+{% block content_title %}{% endblock %}
 
 <ol>
 {% for article in articles_page.object_list %}
     <li><article class="hentry">
-        <header> <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> </header>
+        <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> 
+        
         <footer class="post-info">
             <abbr class="published" title="{{ article.date.isoformat() }}"> {{ article.locale_date }} </abbr>
-            {% if article.author %}<address class="vcard author">By <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a></address>{% endif %}
-        </footer><!-- /.post-info -->
-        <div class="entry-content"> {{ article.summary }} </div><!-- /.entry-content -->
+        </footer>
+        
+        <div class="entry-content"> {{ article.summary }} </div>
     </article></li>
 {% endfor %}
-</ol><!-- /#posts-list -->
+</ol>
 
-{% include 'pagination.html' %}
+{% if articles_paginator.num_pages > 1 %}
+    {% include 'pagination.html' %}
+{% endif %}    
 
-</article><!-- /#content -->
+</section>
 {% endblock content %}

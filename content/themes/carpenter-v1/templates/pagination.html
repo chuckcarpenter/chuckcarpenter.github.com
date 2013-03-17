@@ -1,5 +1,5 @@
 {% if DEFAULT_PAGINATION %}
-<p class="paginator">
+<nav class="pagination">
     {% if articles_page.has_previous() %}
         {% if articles_page.previous_page_number() == 1 %}
             <a href="{{ SITEURL }}/{{ page_name }}.html">&laquo;</a>
@@ -11,5 +11,5 @@
     {% if articles_page.has_next() %}
         <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">&raquo;</a>
     {% endif %}
-</p>
+</nav>
 {% endif %}
