@@ -4,8 +4,8 @@
 AUTHOR = u'Chuck Carpenter'
 SITENAME = u'Chuck Carpenter'
 #TAGLINE = 'does stuff the hard way'
-SITEURL = 'http://localhost:8000'
-#SITEURL = 'http://chuckcarpenter.github.com'
+#SITEURL = 'http://localhost:8000'
+SITEURL = 'http://chuckcarpenter.github.com'
 
 TIMEZONE = 'America/New_York'
 DEFAULT_LANG = u'en'
