@@ -5,4 +5,8 @@
 *.swp
 *.out
 *.py[cod]
+
+# we don't need to save the output local files for the source
 output/
+node_modules/
+.sass-cache/
