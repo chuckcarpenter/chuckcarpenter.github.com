@@ -1,0 +1,31 @@
+{
+  "locals": {
+    "url": "http://localhost:8080",
+    "name": "Chuck Carpenter",
+    "owner": "Chuck Carpenter",
+    "description": "the musings of a web maker"
+  },
+  "plugins": [
+    "./plugins/paginator.coffee",
+    "./node_modules/wintersmith-handlebars/wintersmith-handlebars.coffee"
+  ],
+  "require": {
+    "moment": "moment",
+    "_": "underscore",
+    "typogr": "typogr"
+  },
+  "jade": {
+    "pretty": true
+  },
+  "handlebars": {
+    "partialDir": "src",
+    "helperDir": "helpers"
+  },
+  "markdown": {
+    "smartLists": true,
+    "smartypants": true
+  },
+  "paginator": {
+    "perPage": 3
+  }
+}
