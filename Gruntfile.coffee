@@ -64,7 +64,7 @@ module.exports = ->
         shell:
             github:
                 command: [
-                    './ghp-import -b master -m \'Update site at ' + @template.today("dddd, mmmm dS, yyyy, h:MM:ss TT") + '\' <%= opts.outputDir %>'
+                    './ghp-import -m \'Update site at ' + @template.today("dddd, mmmm dS, yyyy, h:MM:ss TT") + '\' <%= opts.outputDir %>'
                     'git push origin master --force'
                     ].join '&&'
                 options:
