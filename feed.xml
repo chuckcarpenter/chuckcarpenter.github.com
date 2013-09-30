@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chuck Carpenter</title>
+    <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link>http://localhost:8080</link>
+    <description>the musings of a web maker</description>
+    <pubDate>Mon, 15 Apr 2013 20:00:00 -0400</pubDate>
+    <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
+    <language>en</language>
+    <item>
+      <title>When a Portfolio Doesn't Matter</title>
+      <link>http://localhost:8080/articles/portfolio-delete/</link>
+      <pubDate>Mon, 15 Apr 2013 20:00:00 -0400</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/portfolio-delete/</guid>
+      <author></author>
+      <description>&lt;p&gt;I‘ve decided that a portfolio showcase of my past work is no longer relevant, here’s why.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;So after many years in this internet game and sitting on a way outdated ‘portfolio’ site, I decided that I was ready to start over and evaluate that need again. &lt;/p&gt;
+&lt;p&gt;Was I going to put together something else with some static images of sites I&amp;#39;ve worked on in various capacities, showcasing work that may not even be immediately obvious in that medium? It seemed just a bit too abstract and pointless as to what I do on a regular basis. Also, it frankly seems somewhat patronizing to those who do work on more visual product. Sure, sometimes I affect the look and feel of the projects I work on. Often, this is not the case, where I instead solve how it operates or performs. &lt;/p&gt;
+&lt;p&gt;Therein lies what you see now. What is currently a simple weblog. I plan to write some about industry happenings, changes and opinions in that subject matter. I would also like to do some experimentation with this site. I&amp;#39;ll add small bits such as a basic CV, mostly to work with an interesting API or two. I think between what I hope this site becomes and my &lt;a href=&quot;http://github.com/chuckcarpenter&quot;&gt;GitHub&lt;/a&gt; profile, most people should get a sense of the kind of work I can perform. &lt;/p&gt;
+&lt;p&gt;For this site, I&amp;#39;m selecting &lt;a href=&quot;http://pelican.notmyidea.org/&quot;&gt;Pelican&lt;/a&gt;. It‘s a static site generator. For smaller and more simplistic sites with a single author I just don’t see the point in getting involved with a CMS. Plus, it‘s in Python and that’s slowly becoming another language I&amp;#39;d like to get better at/be more familiar with. Should be an interesting ride…&lt;/p&gt;
+</description>
+    </item>
+  </channel>
+</rss>
