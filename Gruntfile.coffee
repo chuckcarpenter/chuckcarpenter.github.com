@@ -4,17 +4,15 @@ module.exports = ->
     # load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach @loadNpmTasks
     
-    opts = 
-        cleanDir: 'output/*'
-        content: 'content'
-        outputDir: 'output'
-        pelican: 'pelican'
-        pelicanOpts: 'pelicanconf.py'
-        theme: 'content/themes/carpenter-v1'
+    options = 
+        cleanDir: 'build/*'
+        content: 'contents'
+        outputDir: 'build'
+        templates: 'templates'
 
     # Initialize the configuration.
     @initConfig
-        opts: opts
+        opts: options
         
         pkg: @file.readJSON 'package.json'
         
@@ -64,23 +62,9 @@ module.exports = ->
                 path: 'http://localhost:<%= connect.options.port %>'
         
         shell:
-            publish:
-                command: 'pelican <%= opts.content %> -o <%= opts.outputDir %> -s <%= opts.pelicanOpts %>'
-                options:
-                    stdout: true
-            devserver:
-                command: [
-                    './develop_server.sh start'
-                    'grunt open:server'
-                    ].join '&&'
-                options:
-                    stdout: true
-            devstop: 
-                command: './develop_server.sh stop'
             github:
                 command: [
-                    'grunt shell:publish'
-                    './ghp-import -m \'Update site at ' + @template.today(now) + '\' <%= opts.outputDir %>'
+                    './ghp-import -b master -m \'Update site at ' + @template.today("dddd, mmmm dS, yyyy, h:MM:ss TT") + '\' <%= opts.outputDir %>'
                     'git push origin master --force'
                     ].join '&&'
                 options:
@@ -92,9 +76,9 @@ module.exports = ->
                     # rather than compiling multiple files here you should
                     # require them into your main .coffee file
                     expand: true
-                    cwd: '<%= opts.theme %>/static/src/scripts'
+                    cwd: 'src/coffee'
                     src: '*.coffee'
-                    dest: '<%= opts.theme %>/static/js'
+                    dest: '<%= opts.content %>/js'
                     ext: '.js'
             # test:
             #     files:
@@ -131,35 +115,36 @@ module.exports = ->
                 eqnull: true
                 browser: true
 
+        wintersmith:
+            build: {}
+            preview:
+                options:
+                    action: 'preview'
+
+
         @renameTask 'regarde', 'watch'
 
-        @registerTask "test", ["jshint"]
+        @registerTask 'test', ['jshint']
 
         @registerTask "build", [
             "clean"
-            #"coffee"
-            #"compass:dist"
+            # "coffee"
+            # "compass:dist"
+            'wintersmith:build'
         ]
 
-        # Run local server
-        @registerTask 'server', (target) ->
-            if target is 'dist'
-                return @task.run(['build', 'open', 'connect:dist:keepalive'])
-
-            @task.run [
-                #'clean'
-                'coffee:dist'
-                'compass:server'
-                #'shell:publish'
-                'connect'
-                'open'
-                #'watch'
-            ]
-
-        # Default task.
+        # Default task. This sets up your build/preview
         @registerTask "default", [
           "clean"
-          "shell:publish"
-          "test"
-          "build"
+          # "build"
+          # "test"
+          "wintersmith:preview"
+        ]
+
+        # This is our final task
+        @registerTask "prod", [
+            "clean"
+            "build"
+            "test"
+            "shell:github"
         ]

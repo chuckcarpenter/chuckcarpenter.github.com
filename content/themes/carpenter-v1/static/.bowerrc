@@ -1,4 +1,0 @@
-{
-  "directory": "{{ SITEURL }}/theme/js/libs",
-  "json" : "bower.json"
-}
